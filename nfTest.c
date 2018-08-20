@@ -95,7 +95,7 @@ static u_int32_t print_pkt (struct nfq_q_handle *qh, struct nfq_data *tb)
             {
                 host_addr =  strstr((char*)http_h, "Host: ") + 6;
                 host_len = (int)(strstr(host_addr, "\r\n") - (char*)host_addr);
-                if(!memcmp(host_addr, "sex.com", host_len))
+                if(!memcmp(host_addr, "www.sex.com", host_len) || !memcmp(host_addr, "sex.com", host_len))
                 {
                     nfq_set_verdict(qh, id, NF_DROP, 0, NULL);
                     return -1;
